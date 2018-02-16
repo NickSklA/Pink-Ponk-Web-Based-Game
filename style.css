@@ -1,12 +1,13 @@
 html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
+  background-color: pink;
 }
 
 body {
-  margin: 0;
+  
   display: flex;
+  flex-wrap: nowrap;
 
   /* This centers our sketch horizontally. */
   justify-content: center;
@@ -15,3 +16,12 @@ body {
   align-items: center;
 }
 
+p {
+
+	margin-left: 30px;
+	border-style: solid;
+	font-weight: bold;
+	font-size: 25px;
+	color: white;
+	margin-right: 300px;
+}

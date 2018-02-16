@@ -1,37 +1,77 @@
 function Players(x , y){
 	
 	this.x = x;
-	this.y = y
+	this.y = y;
+
+	this.yspeed = 10;
+	
+	this.ylength = 90;
+	this.playerWidth = 20;
 
 
 	this.show = function(){
 		
-		fill(255);
-		rect(this.x , this.y, 20 , 150 , 9);
+		fill('pink');
+		rect(this.x , this.y, this.playerWidth , this.ylength , 4);
 	}
 
 	this.update = function keyPressed(player){
 
+		if(escape_pressed){
+			return false;
+		}
 
-		if(player == 2){
+		if(player == 2){   // right player
+
 			if(keyIsDown(UP_ARROW)){
-				this.y -= 10;
+
+				if(this.y > 4)
+					this.y -= this.yspeed;
 			}
 
 			if(keyIsDown(DOWN_ARROW)){
-				this.y += 10;
+
+				if(this.y < height - 95)	
+					this.y += this.yspeed;
 			}
+
 		}
-		else if(player == 1){
+		else if(player == 1){   // left player
+
 			if(keyIsDown(87)){
-				this.y -= 10;
+
+				if(this.y > 4)	
+					this.y -= this.yspeed;
 			}
 
 			if(keyIsDown(83)){
-				this.y += 10;
+
+				if(this.y < height - 95)
+					this.y += this.yspeed;
 			}
 		}
-		
+		else if (player == 3){    // A.I
+
+
+			if(this.y > ball.y && this.y > 30){
+
+				this.y -= ball.yspeed;
+			}
+			else if (this.y <= ball.y && this.y < height){
+
+				this.y += ball.yspeed;
+			}
+		}
+		else if (player == 4){
+
+			this.y = mouseY - this.ylength/2;
+
+		}
 		
 	}
+
+	this.resetPlayer = function() {
+        this.x = x;
+        this.y = y;
+    }
 }

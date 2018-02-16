@@ -1,11 +1,12 @@
-function Tables(x) {
+function Tables(x , y) {
 
-	this.y = 100;
+	this.y = y;
 	this.x = x;
+	this.tableWidth = 15;
 
 	this.show = function(){
-		fill(0);
-		rect(this.x , this.y , 55 , 900);
+		fill('white');
+		rect(this.x , this.y , this.tableWidth , height -1);
 
 	}
 

@@ -11,17 +11,15 @@ var package;
 
 
 function setup(){
-
-
 	//noCursor();
 
 	frameRate(60);
 	createCanvas(windowWidth / 2 , windowHeight / 1.5);
 
-	table1 = new Tables(width - width/1 , 0);
+	table1 = new Tables(width - windowWidth / 2 , 0);
 	table2 = new Tables(width - 16 , 0);
 
-	player1 = new Players(width - 1000 , height/2 - 45);
+	player1 = new Players(width - windowWidth / 2 + 23 , height/2 - 45);
 	player2 = new Players(width - 44 , height/2 - 45);
 
 	ball = new Ball();

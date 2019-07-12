@@ -38,7 +38,7 @@ function Ball(){
 
 		if ( this.x >= width - 16){
 			this.xspeed = 5; 
-			this.yspeed = 4;
+			this.yspeed = 6 * random([-1, 1]);
 			player1.resetPlayer();
 			player2.resetPlayer();	
 			leftScore += 1;
@@ -52,13 +52,13 @@ function Ball(){
 
 		if(this.x <= 16){
 			this.xspeed = 5; 
-			this.yspeed = 4;
+			this.yspeed = 6 * random([-1, 1]);
 			player1.resetPlayer();
 			player2.resetPlayer();		
 			rightScore += 1;
 			this.x = width/2;
 			this.y = height/2;
-			this.xspeed *= -1;
+			this.xspeed *= 1;
 		}
 
 		if(this.y >= height - 16  || this.y <= 16){

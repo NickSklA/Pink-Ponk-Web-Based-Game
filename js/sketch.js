@@ -10,7 +10,7 @@ var escape_pressed = false;
 var package;
 
 
-function setup(){
+function setup() {
 	//noCursor();
 
 	frameRate(60);
@@ -25,7 +25,7 @@ function setup(){
 	ball = new Ball();
 }
 
-function draw(){
+function draw() {
 	background('black');
 
 	table1.show();
@@ -42,46 +42,38 @@ function draw(){
 
 	textSize(32);
 	fill(40, 184, 184);
-	text(leftScore , 55 , 40);
-	text(rightScore , width - 80 , 40);
-	
+	text(leftScore, 55, 40);
+	text(rightScore, width - 80, 40);
 
-
-
-	if(flag == true){
+	if (flag == true) {
 		textSize(32);
 		fill(40, 184, 184);
-		text("Paused" , width/2 - 70 , height/2 - 50);
+		text("Paused", width/2 - 70, height/2 - 50);
 	}
 
-
-	if(escape_pressed == true){
+	if (escape_pressed == true) {
 		textSize(32);
 		fill(40, 184, 184);
-		text("Press 'Esc' to start" , width/2 - 70 , height/2 - 50);
-
+		text("Press 'Esc' to start", width/2 - 70, height/2 - 50);
 	}
 }
 
-
-function keyTyped(){
-
-	if ( (key === 'p' || key === 'P') && escape_pressed == false){
-
-		if (flag == false){
+function keyTyped() {
+	if ((key === 'p' || key === 'P') && escape_pressed == false) {
+		if (flag == false) {
 			noLoop();
 			flag = true;
 		}
-		else{		
+		else {		
 			loop();
 			flag = false;
 		}
 	}
-
 }
 
 function keyPressed() {
-    if (keyIsDown(ESCAPE) && flag == false) {                   // if escape is pressed. Reset everything. Don't let them move!
+	// if escape is pressed. Reset everything. Don't let them move!
+    if (keyIsDown(ESCAPE) && flag == false) {                   
         if (escape_pressed == false) {
             escape_pressed = true;
             ball.totalReset();
@@ -89,8 +81,10 @@ function keyPressed() {
             player2.resetPlayer();
         }
         else {
-            escape_pressed = false;
-            ball = new Ball();                    // by creating new object of ball, it undos all the prohibitions of movement by setting new speed to ball.
+			escape_pressed = false;
+			
+			// by creating new object of ball, it undos all the prohibitions of movement by setting new speed to ball.
+            ball = new Ball();                    
         }
     }
 }
